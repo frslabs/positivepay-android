@@ -191,12 +191,12 @@ The result is obtained through the `PositivePayResult` object
     public void onPosPaySuccess(final PositivePayResult positivePayResult) {
         if (positivePayResult != null) {
             Log.d(TAG, "onScanSuccess: " + positivePayResult.toString());
-            data.setText(positivePayResult.toString());
-            String datObject = positivePayResult.getDataObject();
-            Log.d(TAG, "onPosPaySuccess: data: "+ datObject);
+            
+            String[] images = positivePayResult.getImagePaths();
+            
+            String datObject = positivePayResult.getDataObject();        
             try {
                 JSONObject jsonDataObject = new JSONObject(datObject);
-                Log.d(TAG, "onPosPaySuccess: data: "+ jsonDataObject);
                 JSONObject chqObj = jsonDataObject.getJSONObject("ChequeObject");
                 String payeeName = chqObj.getString(Utility.PAYEE_NAME);
                 String payeeAmount = chqObj.getString(Utility.PAYEE_AMOUNT);
