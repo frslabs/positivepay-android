@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity implements PositivePayResult
     
     @Override
     public void onPosPaySuccess(final PositivePayResult positivePayResult) {
-        //Handle the Cropus SDK Result Here
+        //Handle the PosPay SDK Result Here
         Log.v("onCaptusSuccess...", "onScanSuccess: " + Arrays.toString(positivePayResult.getImageReferenceIds()));
         Log.v("onCaptusSuccess...", "onScanSuccess: " + Arrays.toString(positivePayResult.getImagePaths()));
     }
