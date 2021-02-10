@@ -1,5 +1,5 @@
 # POSITIVE-PAY ANDROID SDK
-![Online version](https://img.shields.io/badge/version-v3.0.0-blue)  ![Offline version](https://img.shields.io/badge/version-v2.0.0-red)
+![version](https://img.shields.io/badge/online version-v3.0.0-blue)  ![version](https://img.shields.io/badge/version-v2.0.0-red)
 
 The Positive pay Android SDK is a real-time MICR code capture for bank cheques in Android.
 
