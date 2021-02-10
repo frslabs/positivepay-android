@@ -19,10 +19,10 @@ Features available are
 - [Setup](#setup)
   - [Permissions](#permissions)
 - [Quick Start](#quick-start)
-  - [Invoking the Cropus SDK](#invoking-the-cropus-sdk)
-- [Cropus SDK Result](#cropus-sdk-result)
-- [Cropus SDK Error Codes](#cropus-sdk-error-codes)
-- [Cropus SDK Parameters](#cropus-sdk-parameters)
+  - [Invoking the Cropus SDK](#invoking-the-positivePay-sdk)
+- [PositivePay SDK Result](#positivePay-sdk-result)
+- [PositivePay SDK Error Codes](#positivePay-sdk-error-codes)
+- [PositivePay SDK Parameters](#positivePay-sdk-parameters)
 - [Help](#help)
 
 ## Prerequisite
@@ -102,7 +102,7 @@ dependencies {
 
 #### Permissions
 
-Cropus SDK uses the required permissions and features
+PositivePay SDK uses the required permissions and features
 ```xml
 
     <!--Permissions-->
@@ -117,9 +117,9 @@ Cropus SDK uses the required permissions and features
 
 ## Quick Start
 
-#### Invoking the Cropus SDK
+#### Invoking the PositivePay SDK
 
-Initialize the `Cropus` instance with the appropriate configurations. 
+Initialize the `PositivePay` instance with the appropriate configurations. 
 Call `start` on the instance to invoke the SDK.
 Handle the result by extending the `PositivePayResultCallback`
 
@@ -128,8 +128,8 @@ public class MainActivity extends AppCompatActivity implements PositivePayResult
 
     // ...
 
-    /* Enter the Cropus SDK license key here */
-    private String CROPUS_LICENSE_KEY = "ENTER_YOUR_LICENSE_KEY_HERE";
+    /* Enter the PositivePay SDK license key here */
+    private String PositivePay_LICENSE_KEY = "ENTER_YOUR_LICENSE_KEY_HERE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -197,7 +197,7 @@ Given below are the public methods in brief.
 </table>
 </div>
 
-## Cropus SDK Error Codes
+## PositivePay SDK Error Codes
 
 Error codes and their meaning are tabulated below
 
