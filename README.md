@@ -88,10 +88,13 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
    
-    //REQUIRED - Cropus SDK Dependency
-    implementation 'com.frslabs.android.sdk:positivepay:3.0.0'
+    //REQUIRED - PositivePay-Online SDK Dependency
+    implementation 'com.frslabs.android.sdk:positivepay:3.X.X'
     
-    //OPTIONAL - only for offline version
+                   OR
+    
+    //REQUIRED - PositivePay-Offline SDK Dependency
+    implementation 'com.frslabs.android.sdk:positivepay:2.X.X'
     implementation 'com.google.android.gms:play-services-mlkit-text-recognition:16.1.1'
     implementation 'com.rmtheis:tess-two:9.1.0'
     
