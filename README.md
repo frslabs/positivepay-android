@@ -189,11 +189,10 @@ The result is obtained through the `PositivePayResult` object
 
     @Override
     public void onPosPaySuccess(final PositivePayResult positivePayResult) {
+    
         if (positivePayResult != null) {
-            Log.d(TAG, "onScanSuccess: " + positivePayResult.toString());
-            
-            String[] images = positivePayResult.getImagePaths();
-            
+            Log.d(TAG, "onScanSuccess: " + positivePayResult.toString());        
+            String[] images = positivePayResult.getImagePaths();            
             String datObject = positivePayResult.getDataObject();        
             try {
                 JSONObject jsonDataObject = new JSONObject(datObject);
