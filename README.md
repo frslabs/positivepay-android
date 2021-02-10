@@ -168,8 +168,7 @@ public class MainActivity extends AppCompatActivity implements PositivePayResult
     @Override
     public void onPosPaySuccess(final PositivePayResult positivePayResult) {
         //Handle the PosPay SDK Result Here
-        Log.v("onCaptusSuccess...", "onScanSuccess: " + Arrays.toString(positivePayResult.getImageReferenceIds()));
-        Log.v("onCaptusSuccess...", "onScanSuccess: " + Arrays.toString(positivePayResult.getImagePaths()));
+        Log.v("onPosPaySuccess...", "onScanSuccess: " + Arrays.toString(positivePayResult.toString));
     }
 
     @Override
@@ -186,19 +185,37 @@ public class MainActivity extends AppCompatActivity implements PositivePayResult
 
 The result is obtained through the `PositivePayResult` object
 
-Given below are the public methods in brief.
-<div>
-<table style="width:100%">
- <tr>
- <th bgcolor="#F1F1F1" colspan="3">Public Methods</th>
- </tr>
- <tr>
- <td>Uri</td>
- <td>getImagePath()</td>
- <td>Returns the Signature Image Path as Uri</td>
- </tr>
-</table>
-</div>
+```java
+
+    @Override
+    public void onPosPaySuccess(final PositivePayResult positivePayResult) {
+        if (positivePayResult != null) {
+            Log.d(TAG, "onScanSuccess: " + positivePayResult.toString());
+            data.setText(positivePayResult.toString());
+            String datObject = positivePayResult.getDataObject();
+            Log.d(TAG, "onPosPaySuccess: data: "+ datObject);
+            try {
+                JSONObject jsonDataObject = new JSONObject(datObject);
+                Log.d(TAG, "onPosPaySuccess: data: "+ jsonDataObject);
+                JSONObject chqObj = jsonDataObject.getJSONObject("ChequeObject");
+                String payeeName = chqObj.getString(Utility.PAYEE_NAME);
+                String payeeAmount = chqObj.getString(Utility.PAYEE_AMOUNT);
+                String payeeDate = chqObj.getString(Utility.PAYEE_DATE);
+                String payeeBankAccountNumber = chqObj.getString(Utility.PAYEE_BANK_ACC_NUMBER);
+                String payeeBankIFSCode = chqObj.getString(Utility.PAYEE_BANK_IFSC);
+                String payeeMICRCode = chqObj.getString(Utility.PAYEE_MICR_CODE);
+                String payeeChequeNumber = chqObj.getString(Utility.PAYEE_CHEQUE_NUMBER);
+                String payeeShortAccountNumber = chqObj.getString(Utility.PAYEE_SHORT_ACCOUNT_NUMBER);
+                String payeeTransactionCode = chqObj.getString(Utility.PAYEE_TRANSACTION_CODE);
+                
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            Log.e("onCaptusSuccess...", "onScanSuccess: " + positivePayResult.toString());
+        }
+    }
+
+```
 
 ## PositivePay SDK Error Codes
 
