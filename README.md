@@ -233,7 +233,7 @@ Error codes and their meaning are tabulated below
 
 - `setLicenseKey(String positivePayLicenseKey)`   ***(Required)***
   
-  Accepts the Cropus SDK licence key as a `String`
+  Accepts the PositivePay SDK licence key as a `String`
 
 ## Help
 For any queries/feedback , contact us at `support@frslabs.com` 
