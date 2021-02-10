@@ -19,7 +19,7 @@ Features available are
 - [Setup](#setup)
   - [Permissions](#permissions)
 - [Quick Start](#quick-start)
-  - [Invoking the Cropus SDK](#invoking-the-positivePay-sdk)
+  - [Invoking the PositivePay SDK](#invoking-the-positivePay-sdk)
 - [PositivePay SDK Result](#positivePay-sdk-result)
 - [PositivePay SDK Error Codes](#positivePay-sdk-error-codes)
 - [PositivePay SDK Parameters](#positivePay-sdk-parameters)
