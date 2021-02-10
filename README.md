@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements PositivePayResult
     
          PositivePayConfig posPayConfig = new PositivePayConfig.Builder()
                 .setLicenseKey("LICENCE_KEY_POSPAY_SDK")
-                .setDocumentSide(side)
+                .setDocumentSide(Utility.Side.TWO)
                 .setOcrFlag("API")
                 .setApiCredentials(new PositivePayApiCredentials(POSPAY_API_BASE_URL
                         , POSPAY_API_REFERENCE_ID
