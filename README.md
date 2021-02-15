@@ -144,12 +144,12 @@ public class MainActivity extends AppCompatActivity implements PositivePayResult
             @Override
             public void onClick(View view) {
                 /* Invoke the Cropus SDK */
-                invokePosPaySDK();
+                invokePosPaySDKOnline();
             }
         });
     }
 
-    private void invokePosPaySDK() {
+    private void invokePosPaySDKOnline() {
     
          PositivePayConfig posPayConfig = new PositivePayConfig.Builder()
                 .setLicenseKey("LICENCE_KEY_POSPAY_SDK")
@@ -206,12 +206,12 @@ public class MainActivity extends AppCompatActivity implements PositivePayResult
             @Override
             public void onClick(View view) {
                 /* Invoke the Cropus SDK */
-                invokePosPaySDK();
+                invokePosPaySDKOffline();
             }
         });
     }
 
-    private void invokePosPaySDK() {
+    private void invokePosPaySDKOffline() {
     
          PositivePayConfig posPayConfig = new PositivePayConfig.Builder()
                 .setLicenseKey("LICENCE_KEY_POSPAY_SDK")
