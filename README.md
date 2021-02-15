@@ -89,12 +89,12 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
    
     //REQUIRED - PositivePay-Online SDK Dependency
-    implementation 'com.frslabs.android.sdk:positivepay:3.X.X'
+    implementation 'com.frslabs.android.sdk:positivepay:3.1.0'
     
                    OR
     
     //REQUIRED - PositivePay-Offline SDK Dependency
-    implementation 'com.frslabs.android.sdk:positivepay:2.X.X'
+    implementation 'com.frslabs.android.sdk:positivepay:2.1.1'
     implementation 'com.google.android.gms:play-services-mlkit-text-recognition:16.1.1'
     implementation 'com.rmtheis:tess-two:9.1.0'
     
@@ -120,7 +120,7 @@ PositivePay SDK uses the required permissions and features
 
 ## Quick Start
 
-#### Invoking the PositivePay SDK
+#### Invoking the PositivePay SDK - Online
 
 Initialize the `PositivePay` instance with the appropriate configurations. 
 Call `start` on the instance to invoke the SDK.
@@ -181,6 +181,66 @@ public class MainActivity extends AppCompatActivity implements PositivePayResult
 
 }
 ```
+
+#### Invoking the PositivePay SDK - Offline
+
+Initialize the `PositivePay` instance with the appropriate configurations. 
+Call `start` on the instance to invoke the SDK.
+Handle the result by extending the `PositivePayResultCallback`
+
+```java
+public class MainActivity extends AppCompatActivity implements PositivePayResultCallback {
+
+    // ...
+
+    /* Enter the PositivePay SDK license key here */
+    private String PositivePay_LICENSE_KEY = "ENTER_YOUR_LICENSE_KEY_HERE";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        Button callSdk = findViewById(R.id.call_sdk);
+        callSdk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /* Invoke the Cropus SDK */
+                invokePosPaySDK();
+            }
+        });
+    }
+
+    private void invokePosPaySDK() {
+    
+         PositivePayConfig posPayConfig = new PositivePayConfig.Builder()
+                .setLicenseKey("LICENCE_KEY_POSPAY_SDK")
+                .setDocumentSide(Utility.Side.TWO)
+                .setOcrFlag("SDK")         
+                .build();
+
+        PositivePay posPay = new PositivePay(posPayConfig);
+        posPay.start(this, this);
+    }
+    
+    @Override
+    public void onPosPaySuccess(final PositivePayResult positivePayResult) {
+        //Handle the PosPay SDK Result Here
+        Log.v("onPosPaySuccess...", "onScanSuccess: " + Arrays.toString(positivePayResult.toString));
+    }
+
+    @Override
+    public void onPosPayFailure(int errorCode) {
+        /* Handle the Cropus SDK error here */
+        Toast.makeText(this, "Error: "+ errorCode, Toast.LENGTH_SHORT).show();
+    }
+    
+    // ...
+
+}
+```
+
+
 ## PositivePay SDK Result
 
 The result is obtained through the `PositivePayResult` object
